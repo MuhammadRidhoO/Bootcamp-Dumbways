@@ -1,0 +1,41 @@
+<div style="
+        box-sizing:content-box;
+        margin: 100px;
+        margin-top: 50px;
+        width: 300; 
+        padding:100px; 
+        box-shadow: 2px 2px 30px black; 
+        border-radius: 10px;">
+            <h3>Hi Welcome to my hut</h3>
+            <P style="text-align:center; 
+            background-color: aqua;">
+                <q>aaaaaaaaaaaaaaaaaa
+                    <br>asdsadasdass</br>
+                    <br>sadsadsadsad</br>
+                    <br>sadsadsadsadsadas</br>
+                    <br>dsadasdsad</br>
+                    <br>sadasdasdasd</br>
+                    <br>sdfsdfsdfsdfdsfdfsdfsdfsd</br>
+                    <br>sdfsdfsdfsdfdsfdfsdfsdfsd</br>
+                    <br>sdfsdfsdfsdfdsfdfsdfsdfsd</br>
+            </q></p>
+            <button style="background-color: black; 
+            color: white; 
+            border-radius: 10px;">contact</button>
+            <h4>download CV</h4>
+            <div class="image">
+                <img src="Muhammad Ridho Img.webp" alt="my image" 
+                style="width: 130; 
+                border-radius: 16px;
+                align-items: center;
+                margin: 0 84;
+                height: inherit"/>
+            </div>
+            <div>
+                <p style="text-align: center;">Muhammad Ridho</p>
+                <p style="text-align: center;
+                          margin-bottom: 1px;">
+                          Web Devoloper</p>
+            </div>
+            </table>
+        </div>
