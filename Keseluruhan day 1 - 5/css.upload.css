@@ -1,0 +1,14 @@
+.upload {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 22.94px;
+    margin-top:10px ;
+}
+
+.labelupload {
+    display: flex; 
+    justify-content: space-between; 
+    border: 1px solid black;
+    border-radius: 3px;
+}

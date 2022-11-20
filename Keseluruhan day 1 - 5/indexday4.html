@@ -1,0 +1,119 @@
+<html>
+
+<head>
+    <title>Tugas Hari ke 4</title>
+    <link rel="stylesheet" href="styleday4.css">
+</head>
+
+<body>
+    <div class="baratas">
+        <div class="stepone">
+            <nav class="navbar">
+                <div class="antara">
+                    <a href=""> <img src="Logo Dumbways.png" alt="" /></a>
+                    <ul class="navbarmenu">
+                        <li>
+                            <a href="day2.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="">My Project</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <button class="buttonfirst">Contact Me</button>
+                </div>
+            </nav>
+            <div>
+                <h1>ADD MY PROJECT</h1>
+                <form onsubmit="addData(event)">
+                <div class="menuinput">
+                        <label class="pertama">Project Name</label>
+                        <input class="inputpertama" type="text" id="name">
+                        <div>
+                            <label class="kedua">Start Date</label>
+                            <input type="datetime" class="kedua" id="date">
+                            <label class="kedua">End Date</label>
+                            <input type="datetime" class="kedua" id="end">
+                        </div>
+                        <label class="pertama">Description</label>
+                        <textarea name="" id="description" cols="30" rows="10" class="inputkedua"
+                            style="height: 200px; margin-bottom: 20px; resize: none; border-radius: 5px;"></textarea>
+
+                        <!-- checkbox -->
+
+                        <div class="ketiga">
+                            <label>Technologies</label>
+                            <div class="tigasatu" style="margin-top: 20px ;">
+                                <div>
+                                    <input type="checkbox">
+                                    <label for="">Node JS</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <label for="">Next JS</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <label for="">React JS</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <label for="">TypeSripct</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Upload Image -->
+                        <div class="judulupload">
+                            <label for="">Upload Image</label>
+                            <div class="upload">
+                                <input type="file" class="uploaddata" id="inputimg">
+                                <img src="file.png" alt="" style="width: 18px;">
+                            </div>
+                        </div>
+                        <!-- Submit -->
+                        <div class="posisibutton">
+                            <button class="submit" onclick="inputdata">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Awal -->
+                <div class="lanjutanmenubawah">
+                    <h2 style="margin-bottom: 40px; margin-top: 40px;">MY PROJECT WERE</h2>
+                </div>
+                <div class="menumyproject">
+                    <div class="detailproject">
+                        <div>
+                            <div>
+                                <img src="ROG zephytrus duo 16.png" alt="">
+                            </div>
+                            <div>
+                                <!-- Teknologi -->
+                            </div>
+                        </div>
+                        <h3 style="margin-bottom:10px ;">ROG Zephytrus Duo 16</h3>
+                        <h5>Durasi</h5>
+                        <p>Reaching new heights of innovation for dual-display laptops, ROG Zephyrus Duo 16 paves the
+                            way to fresh and exciting experiences for gamers and creators. But the innovation doesn’t
+                            end with ASUS ScreenPad Plus, this incredible device also features other innovations like a
+                            Nebula HDR display, ROG Intelligent Cooling, AI Noise Cancelation and more.</p>
+                    </div>
+                    <div class="gambarakses">
+                        <img src="playstorage.png" alt="">
+                        <img src="android.png" alt="">
+                        <img src="java.png" alt="">
+                    </div>
+                    <div class="tombolpilihan">
+                        <button>edit</button>
+                        <button>delete</button>
+                    </div>
+                </div>
+                <!-- Akhir -->
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
