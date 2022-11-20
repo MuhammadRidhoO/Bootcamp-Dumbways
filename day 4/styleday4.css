@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+.baratas {
+    width: auto;
+    height: auto;
+    background-color: rgb(168, 156, 156);
+}
+
+.stepone  {
+    background-color: rgb(196, 203, 205);
+    width: 100%;
+    height: 1000%;
+    
+}
+
+.navbar {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 140px;
+    gap: 40px;
+    align-items: center;
+    
+}
+
+.antara {
+    display: flex;
+    gap: 60px;
+}
+
+.navbarmenu {
+    display: flex;
+    gap: 60px;
+    align-items: center;;
+}
+
+ul li a {
+    color: black
+}
+
+img {
+    width: 70px;
+    gap: 50px;
+}
+
+.contact {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.buttonfirst {
+    width: 150px;
+    height: 50px;
+    background-color: orangered;
+    color: white;
+    border-radius: 15px;
+}
+
+
+
+h1 {
+    /* background-color: dimgray; */
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom:40px ;
+}
+
+.menuinput {
+    padding: 30px;
+    /* background-color:blueviolet; */
+    /* box-shadow: 0.5px 0.5px 3px; */
+    margin: auto;
+    width: 486px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+
+.pertama {
+    /* background-color: darksalmon; */
+    width: 100px;
+    height: 20px;
+    display: flex;
+    align-items:flex-end;
+}
+
+.inputpertama {
+    /* background-color: darkslategrey; */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:20px ;
+    height: 25px;
+}
+
+.kedua {
+    /* background-color:hotpink; */
+    width: 136.9px;
+    border-radius: 5px;
+    height: 27px;
+    margin-bottom: 20px;
+}
+
+.ketiga {
+    /* background-color: brown; */
+    bottom: 0px;
+}
+
+
+.tigasatu {
+    /* background-color: aqua; */
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 120px auto;
+    gap: 10px;
+}
+
+.judulupload {
+    /* background-color: blue; */
+    margin-top: 20px;
+}
+
+.upload {
+    /* background-color: darkslategrey; */
+   margin-top: 2px;
+    width: 250px;
+    height: 22.94px;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 4px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.posisibutton {
+    /* background-color: green; */
+    width: auto;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.submit {
+    width: 110px;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+}
+
+.lanjutanmenubawah {
+    margin :auto;
+    text-align: center;
+    /* background-color: gold; */
+    width: 486px;
+}
+
+.menumyproject {
+    padding: 30px;
+    /* background-color: red; */
+    height: auto;
+    width: 486px;
+    margin: auto;
+    box-shadow: 1px 1px 3px;
+    border-radius: 10px;
+}
+
+.detailproject {
+    /* background-color: slateblue; */
+    margin-bottom: 30px;
+}
+
+/* Yang akan di edit */
+.detailproject img {
+    width: 280px;
+    height: 170px;
+    
+    border-radius: 8px;
+}
+
+.detailproject p {
+    font-size: 14px;
+}
+
+.gambarakses img {
+    /* background-color: deepskyblue;   */
+    width: 25px;
+    height: 25px;
+    row-gap: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+.tombolpilihan {
+    /* background-color: gray; */
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tombolpilihan button {
+    width: 200px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    align-items: center;
+}
