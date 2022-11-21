@@ -13,12 +13,12 @@
     background-color: rgb(168, 156, 156);
 }
 
-.stepone  {
+/* .stepone  {
     background-color: rgb(196, 203, 205);
     width: 100%;
     height: 1000%;
     
-}
+} */
 
 .navbar {
     background-color: whitesmoke;
@@ -170,20 +170,30 @@ h1 {
 }
 
 .lanjutanmenubawah {
+    /* background-color: aqua; */
     margin :auto;
     text-align: center;
     /* background-color: gold; */
-    width: 486px;
+    width: auto;
+
 }
 
 .menumyproject {
-    padding: 30px;
     /* background-color: red; */
     height: auto;
-    width: 486px;
-    margin: auto;
+    width: 426px;
+    /* margin: auto; */
     box-shadow: 1px 1px 3px;
     border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.semua{
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: column;
+    width: auto;
 }
 
 .detailproject {
