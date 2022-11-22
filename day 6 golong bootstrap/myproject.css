@@ -1,0 +1,21 @@
+*{
+    text-decoration: none;
+    list-style: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: whitesmoke;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    object-fit: contain;
+}
+
+.buttoncontact {
+    padding: 23px;
+}
+
