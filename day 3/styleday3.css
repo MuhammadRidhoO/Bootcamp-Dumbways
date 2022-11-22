@@ -9,7 +9,7 @@
 
 body {
     width: 100vw;
-    height: 48.5vw;
+    height: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +24,7 @@ body {
 }
 
 .namajudul {
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     padding: 30px;
