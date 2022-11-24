@@ -17,7 +17,7 @@ func main() {
 	route.HandleFunc("/", home).Methods("GET")
 	route.HandleFunc("/contact", contact).Methods("GET")
 	route.HandleFunc("/inputproject", inputproject).Methods("GET")
-	route.HandleFunc("/inputproject", theproject).Methods("POST")
+	route.HandleFunc("/add-blog", addBlog).Methods("POST")
 
 	fmt.Println("Server berjalan pada port 5000")
 	http.ListenAndServe("localhost:5000", route)
@@ -56,15 +56,15 @@ func inputproject(w http.ResponseWriter, r *http.Request){
 	tmpl.Execute(w, nil)
 }
 
-func theproject(w http.ResponseWriter, r *http.Request){
+func addBlog(w http.ResponseWriter, r *http.Request){
 	err := r.ParseForm()
 
 	if err != nil {
 		log.Fatal(err)
-
-		fmt.Println("ini nama project : " + r.PostForm.Get("theproject"))
+	}
+		fmt.Println("ini nama project : " + r.PostForm.Get("nameproject"))
 		fmt.Println("ini comment : " + r.PostForm.Get("comment"))
 
 		http.Redirect(w, r, "/", http.StatusMovedPermanently)
-	}
+	
 }
