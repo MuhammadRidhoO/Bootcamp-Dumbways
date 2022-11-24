@@ -85,3 +85,43 @@
 body {
     background-color: rgb(197, 197, 197);
 }
+
+.card-img-top {
+    width: 300px;
+    height: auto;
+}
+
+
+.aturposisi {
+    display: grid;
+    padding: 30px;
+}
+
+.card-group {
+    padding: 30px;
+    border: 1px solid black;
+}
+
+.card {
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.editdelete2 {
+    display: flex;
+    gap: 40px;
+}
+
+.editdelete2 button {
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: orangered;
+    border-radius: 5px;
+}
+
+.keduanya {
+    display: flex;
+    justify-content: space-between;
+}
