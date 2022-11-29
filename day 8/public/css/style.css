@@ -1,0 +1,121 @@
+*{
+    text-decoration: none;
+    list-style: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: whitesmoke;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    object-fit: contain;
+}
+
+.buttoncontact {
+    padding: 23px;
+}
+
+.step1 {
+    background-color: white;
+    width: 1210px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: auto;
+    padding: 50px;
+    border-radius: 15px;
+}
+
+.kiri {
+    /* background-color: blue; */
+    width: 600px;
+    margin: auto;
+
+}
+
+.download {
+    /* background-color: brown; */
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 100px;
+}
+
+.kontak {
+    background-color: black;
+    color: white;
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+    margin-right:  20px;
+}
+
+.contact {
+    display: flex;
+}
+
+.download img {
+    width: 20px;
+    height: auto;
+}
+
+.social {
+    /* background-color: chartreuse; */
+    margin-left: 0px ;
+}
+
+.social ul {
+    display: flex;
+    gap: 15px;
+}
+
+.social img{
+    width: 30px;
+}
+
+.fotoridho {
+    width: 300px;
+    height: 500px;
+    border-top-left-radius: 20px ;
+    border-top-right-radius: 20px ;
+
+}
+
+.foto {
+    /* background-color: chocolate; */
+    width: 300px;
+    height: auto;
+    margin-right: 60px;
+    border: 0px solid black;
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px;
+}
+
+.bawah {
+    background-color: rgb(164, 164, 164);
+    padding: 50px;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+/* dari sini */
+
+.aturposisi {
+    display: grid; 
+    padding: 30px;
+    ackground-color: white;
+}
+
+.card-group{
+    padding: 30px; 
+    border: 1px solid black;
+}
