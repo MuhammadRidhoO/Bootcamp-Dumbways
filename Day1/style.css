@@ -6,33 +6,47 @@
 }
 
 .container {
-    width: 100vw;
-    height: 105vh;
-    padding: 10px 20px;
+    width: auto;
+    height: 745px;
+    padding: 40px 100px;
     background-color: #D6E4E5;
 }
 
 .card-container {
-    margin: 30px 80px;
-    padding: 30px 500px;
-    background-color: EFF5F5;
+    background-color: white;
+    margin: auto;
+    width: 850px;
+    padding: 30px 100px;
+    box-shadow: 0px 0px 4px;
+    border-radius: 12px;
 }
 
 .identity{
-    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: blueviolet; */
+    font-family: Calibri, Helvetica, sans-serif;
     text-align:justify;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 30px;
+    width: 400px;
+    height: auto;
+    /* border: 5px solid black; */
+    margin: auto;
+
 }
 
 
 .download {
+    /* background-color: brown; */
     display: flex;
     gap:10px
 }
 
 .download img {
-    width: 23px; 
-    height: 20px;
-    margin-bottom: 15px;
+    /* background-color: burlywood; */
+    width: 20px; 
+    height: 15px;
+    margin-bottom: 20px;
 }
 
 .sosmed ul{
@@ -44,29 +58,31 @@
 .sosmed img{
     width: 27px; 
     height: 27px;
+    margin-bottom: 20px;
 }
 
 
 .contact {
-    width: 80px;
-    height: 30px;
-    border-radius: 10px;
+    /* background-color: cadetblue; */
+    width: 100px;
+    height: 23px;
+    border-radius: 17px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:15px ;
-    margin-bottom: 8px;
+    margin-top:20px ;
+    margin-bottom: 20px;
     background-color: black;
     color: white;
 }
 
 .photo {
+    /* background-color: cornflowerblue; */
     margin: auto;
     border: center;
-    border-radius: 12px;
-    box-shadow: 1px 1px 13px;
-    width: 179px;
-    height: 350px ;
+    box-shadow: 0px 0px 3px;
+    width: 147px;
+    height: auto ;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,7 +97,6 @@
 
 
 .photo img {
-    object-fit: contain;
-    width: 180px;
+    width: auto;
     height: 260px;
 }

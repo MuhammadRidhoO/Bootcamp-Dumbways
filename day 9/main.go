@@ -7,13 +7,15 @@ import (
 	"net/http"
 	"strconv"
 
-	// "vendor/golang.org/x/net/idna"
+
 
 	"github.com/gorilla/mux"
 )
 
 func main() {
 	route := mux.NewRouter()
+
+	config.DatabaseConnect()
 
 	route.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("./public"))))
 	

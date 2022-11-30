@@ -27,10 +27,10 @@ function dataBase(event) {
 
   let gambar = URL.createObjectURL(image[0])
 
-  let js = ''
-  let node_js = ''
-  let react_js = ''
-  let ts = ''
+  js = ''
+  node_js = ''
+  react_js = ''
+  ts = ''
 
   if (js == true) {
     js = 'img/JavaScript.png'
@@ -63,6 +63,7 @@ function dataBase(event) {
   console.log(data)
   renderBlog()
 }
+
 
 function renderBlog() {
   document.getElementById("semua").innerHTML = ``

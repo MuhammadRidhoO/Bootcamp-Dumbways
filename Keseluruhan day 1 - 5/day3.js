@@ -17,10 +17,9 @@ if (nama == "") {
     return alert('tolong isi')
 } else if (massage == "") {
     return alert('tolong isi')
-
 }
 
-let emailReceiver = "muhammadridho081997@gmail.com"
+// let emailReceiver = "muhammadridho081997@gmail.com"
 
 let link = document.createElement('a')
 link.href = `mailto:${email}?subject=${subject}&body=Hallo nama saya ${nama}, ${massage}, silahkan kontak nomer saya di ${number}`
