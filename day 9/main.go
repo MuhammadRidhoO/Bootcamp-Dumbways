@@ -1,25 +1,28 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 	"strconv"
+	"time"
 
-
+	// "vendor/golang.org/x/net/idna"
 
 	"github.com/gorilla/mux"
+	"persona-web/connection"
 )
 
 func main() {
 	route := mux.NewRouter()
 
-	config.DatabaseConnect()
-
+	connection.DatabaseConnect()
+	
 	route.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("./public"))))
 	
-	route.HandleFunc("/", home).Methods("GET")//1
+	route.HandleFunc("/", newHome).Methods("GET")//1
 	route.HandleFunc("/", addBlog).Methods("POST") //2
 	route.HandleFunc("/contact", contact).Methods("GET")
 	route.HandleFunc("/final-blog/{id}", finalBlog).Methods("GET")
@@ -42,7 +45,11 @@ type Blog struct {
 	ReactJS		string
 	JavaScript	string
 	TypeScript	string
-	Id			int	
+	Id			int
+	StartDate 	string
+	EndDate		string
+	Duration 	string
+	Image 		string
 }
 
 var blogs = []Blog{
@@ -54,6 +61,43 @@ var blogs = []Blog{
 	},
 }
 
+func newHome(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-type", "text/html; charset=utf-8")
+	tmpt, err := template.ParseFiles("views/addblog.html")
+
+	if err != nil {
+		w.Write([]byte("Message: " + err.Error()))
+		return
+	}
+	dataProjects, errQuery := connection.Conn.Query(context.Background(), "SELECT id, nameproject, comment, image FROM project")
+	if errQuery != nil {
+		fmt.Println("Message : " + errQuery.Error())
+		return
+	}
+
+	var result []Blog
+
+	for dataProjects.Next() {
+		var each = Blog{}
+
+		err := dataProjects.Scan(&each.Id, &each.Nameproject, &each.Comment, &each.Image)
+		if err != nil {
+			fmt.Println("Message : " + err.Error())
+			return
+		}
+
+		result = append(result, each)
+	}
+
+	// fmt.Println(result)
+	listProject := map[string]interface{}{
+		"Blogs": result,
+	}
+
+	tmpt.Execute(w, listProject)
+}
+
+
 func addBlog(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 
@@ -61,6 +105,35 @@ func addBlog(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 		
+	startDate := r.PostForm.Get("start_date")
+	endDate := r.PostForm.Get("end_date")
+	const (
+		layoutISO = "2006-01-02"
+	)
+	tStartDate, _ := time.Parse(layoutISO, startDate)
+	tEndDate, _ := time.Parse(layoutISO, endDate)
+	diff := tEndDate.Sub(tStartDate)
+
+	months := int64(diff.Hours() / 24 / 30)
+	days := int64(diff.Hours() / 24)
+
+	if days%30 >= 0 {
+		days = days % 30
+	}
+
+	var duration string
+
+	if months >= 1 && days >= 1 {
+		duration = strconv.FormatInt(months, 10) + " month " + strconv.FormatInt(days, 10) + " days"
+	} else if months >= 1 && days <= 0 {
+		duration = strconv.FormatInt(months, 10) + " month"
+	} else if months < 1 && days >= 0 {
+		duration = strconv.FormatInt(days, 10) + " days"
+	} else {
+		duration = "0 days"
+	}
+	// End for Duration
+
 	nameproject  := r.PostForm.Get("nameproject")
 	comment := r.PostForm.Get("comment")
 	nodejs := r.PostForm.Get("nodejs")
@@ -97,6 +170,10 @@ func addBlog(w http.ResponseWriter, r *http.Request) {
 		ReactJS: imgreactjs,
 		JavaScript: imgjavascript,
 		TypeScript: imgtypescript,
+		StartDate: startDate,
+		EndDate: endDate,
+		Duration: duration,
+
 	}
 	
 	blogs = append(blogs, newBlog)
@@ -112,6 +189,9 @@ func home(w http.ResponseWriter, r *http.Request){
 		w.Write([]byte("Massage : " + err.Error()))
 		return
 	}
+
+
+
 	dataBlog := map[string]interface{}{
 		"Blogs": blogs,
 	}
@@ -142,6 +222,9 @@ func formubahdata(w http.ResponseWriter, r *http.Request){
 				ReactJS: data.ReactJS,
 				TypeScript: data.TypeScript,
 				Id: id,
+				StartDate: data.StartDate,
+				EndDate: data.EndDate,
+				Duration: data.Duration,
 			}
 		}
 	}
@@ -159,20 +242,75 @@ func formproses(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	
 	nameproject  := r.PostForm.Get("nameproject")
 	comment := r.PostForm.Get("comment")
 	nodejs := r.PostForm.Get("nodejs")
 	reactjs := r.PostForm.Get("reactjs")
 	javascript := r.PostForm.Get("javascript")
 	typescript := r.PostForm.Get("typescript")
+	startDate := r.PostForm.Get("start_date")
+	endDate := r.PostForm.Get("end_date")
+
+	const (
+		layoutISO = "2006-01-02"
+	)
+	tStartDate, _ := time.Parse(layoutISO, startDate)
+	tEndDate, _ := time.Parse(layoutISO, endDate)
+	diff := tEndDate.Sub(tStartDate)
+
+	months := int64(diff.Hours() / 24 / 30)
+	days := int64(diff.Hours() / 24)
+
+	if days%30 >= 0 {
+		days = days % 30
+	}
+
+	var duration string
+
+	if months >= 1 && days >= 1 {
+		duration = strconv.FormatInt(months, 10) + " month " + strconv.FormatInt(days, 10) + " days"
+	} else if months >= 1 && days <= 0 {
+		duration = strconv.FormatInt(months, 10) + " month"
+	} else if months < 1 && days >= 0 {
+		duration = strconv.FormatInt(days, 10) + " days"
+	} else {
+		duration = "0 days"
+	}
+
+	imgnodejs := ""
+	imgreactjs := ""
+	imgjavascript := ""
+	imgtypescript := ""
+
+	if nodejs == "true"{
+		imgnodejs = "/public/image/JSnode.png"
+		
+	}
+	if reactjs == "true" {
+		imgreactjs = "/public/image/ReactJS.png"
+		
+	}
+	if javascript == "true"{
+		imgjavascript = "/public/image/JavaScript.png"
+		
+	}
+	if typescript == "true"{
+		imgtypescript = "/public/image/typesscript.png"
+		
+	}
 	
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
 		blogs[id].Nameproject = nameproject
 		blogs[id].Comment = comment
-		blogs[id].JavaScript = javascript
-		blogs[id].NodeJS = nodejs
-		blogs[id].ReactJS = reactjs
-		blogs[id].TypeScript = typescript
+		blogs[id].JavaScript = imgjavascript
+		blogs[id].NodeJS = imgnodejs
+		blogs[id].ReactJS = imgreactjs
+		blogs[id].TypeScript = imgtypescript
+		blogs[id].StartDate = startDate
+		blogs[id].EndDate = endDate
+		blogs[id].Duration = duration
 	
 	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }

@@ -11,7 +11,7 @@ import (
 var Conn *pgx.Conn
 
 func DatabaseConnect() {
-	databaseUrl := "postgres://postgres:08091997@localhost:1997/new_project"
+	databaseURL := "postgres://postgres:08091997@localhost:1997/new_project"
 
 
 	

@@ -49,9 +49,9 @@
       <input name="nameproject" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{.Blog.Nameproject}}">
       <div>
         <label class="kedua">Start Date</label>
-        <input type="date" class="kedua" id="start">
+        <input type="date" class="kedua" id="start" name="start_date" value="{{.Blog.StartDate}}">
         <label class="kedua">End Date</label>
-        <input type="date" class="kedua" id="end">
+        <input type="date" class="kedua" id="end" name="end_date" value="{{.Blog.EndDate}}">
       </div>
       <div>
         <label for="">Destription</label>
@@ -63,19 +63,19 @@
       <label>Technologies</label>
       <div class="tigasatu" style="margin-top: 20px ;">
           <div>
-              <input name="nodejs" type="checkbox" id="logocheckbox" value="true">
+              <input name="nodejs" {{if .Blog.NodeJS}} checked {{end}} type="checkbox" id="logocheckbox" value="true">
               <label for="">Node JS</label>
           </div>
           <div>
-              <input name="javascript" type="checkbox" id="logocheckbox" value="true">
+              <input name="javascript" {{if .Blog.JavaScript}} checked {{end}} type="checkbox" id="logocheckbox" value="true">
               <label for="">JavaScript</label>
           </div>
           <div>
-              <input name="reactjs" type="checkbox" id="logocheckbox" value="true">
+              <input name="reactjs" {{if .Blog.ReactJS}} checked {{end}} type="checkbox" id="logocheckbox" value="true">
               <label for="">React JS</label>
           </div>
           <div>
-              <input name="typescript" type="checkbox" id="logocheckbox" value="true">
+              <input name="typescript" {{if .Blog.TypeScript}} checked {{end}} type="checkbox" id="logocheckbox" value="true">
               <label for="">TypeSripct</label>
           </div>
       </div>
