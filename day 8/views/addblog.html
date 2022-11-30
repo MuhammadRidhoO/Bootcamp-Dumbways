@@ -108,7 +108,7 @@
           <img src="public/image/ROG zephytrus duo 16.png" class="card-img-top" alt="..." style="width: 200px;height: auto;">
         </div>
         </div>
-           <a href="final-blog/{id}"  class="card-title">{{$data.Nameproject}}</a>
+           <a href="final-blog/{{$index}}"  class="card-title">{{$data.Nameproject}}</a>
             <p>24/Nov/2022 | {{$data.Author}}</p>
               <p>Tecnology</p>
             <div style="margin-bottom:20px ; margin-top: -20px;"> 
@@ -122,22 +122,24 @@
               <li class="editdelete2" style="
                     display: flex;
                     justify-content: space-between;">
-                  <button style="
+                  <a href="/edit/{{$index}}" style="
                   border: none;
+                  text-align: center;
                   width: 80px;
                   height: 30px;
-                  background-color: orangered;
-                  border-radius: 5px;"><a href="" style="
+                  background-color: orange;
+                  border-radius: 5px;
                   color: white ; 
-                  text-decoration: none; ">Edit</a></button>
-                  <button style="
-                  border: none;
-                  width: 80px;
-                  height: 30px;
-                  background-color: orangered;
-                  border-radius: 5px;"><a href="" style="
+                  text-decoration: none; " >Edit</a>
+                  <a href="/delete/{{$index}}" style="
+                    border: none;
+                    text-align: center;
+                    width: 80px;
+                    height: 30px;
+                    background-color: red;
+                    border-radius: 5px;
                   color: white ; 
-                  text-decoration: none; ">Delete</a></button>
+                  text-decoration: none; ">Delete</a>
                 </li>
             </div>
         </div>

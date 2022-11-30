@@ -27,7 +27,7 @@
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/public/inputproject">My Project</a>
+                <a class="nav-link" href="/inputproject">My Project</a>
               </li>
             </ul>
           </div>>
@@ -46,11 +46,17 @@
 <!-- big blog -->
 <div class="blog-detail">
     <div class="blog-detail-container">
-      <a href="" >{{.Nameproject}}</a>
-      <div class="author">{{.PostAt}} | {{.Author}}</div>
+      <a href="" >{{.Blog.Nameproject}}</a>
+      <div class="author">29 Nov 2022 | Muhammad Ridho</div>
+      <div style="margin-bottom:20px ; margin-top: 20px;"> 
+        <img src="/public/image/JavaScript.png" style="width:30px ;" alt="">
+        <img src="/public/image/JSnode.png" style="width:30px ; margin: 10px;" alt="">
+        <img src="/public/image/ReactJS.png" style="width:30px ; margin: 10px;" alt="">
+        <img src="/public/image/typesscript.png" style="width:30px ; margin: 10px;" alt="">
+      </div>
       <img src="/public/image/ROG zephytrus duo 16.png" alt="detail" />
       <p>
-        {{.Comment}}
+        {{.Blog.Comment}}
       </p>
     </div>
   </div>
