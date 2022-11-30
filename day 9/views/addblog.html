@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>add Blog</title>
+  <link rel="icon" href="public/image/Logo Dumbways.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="public/css/style.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid w-auto">
+        <a class="navbar-brand"><img src="public/image/Logo Dumbways.png" alt="" class="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/inputproject">My Project</a>
+            </li>
+          </ul>
+        </div>>
+      </div>
+    </nav>
+    <div class="buttoncontact">
+      <button type="button" class="btn btn-danger"><a href="/contact">Contact</a></button>
+    </div>
+  </div>
+  <!-- End Navbar -->
+  <!-- Name Card -->
+  <div class="bawah">
+  <div class="step1">
+    <div class="kiri">
+      <div>
+        <h3 style="margin-left: 30px;">Welcome to my Hut</h3>
+        <p style="padding: 30px;">Nama saya muhammad ridho yang berasal dari padang, sumatera barat
+          dan saya lulusan dari Universitas BungHatta dan sekarang belajar
+          bagaimana menjadi seorang web devoloper dan juga ini kali pertama saya untuk belajar bagai mana menjadi
+          seorang
+          IT, jujur berat berajarnya karena saya belajar dari dari awal dan itu tidak mudah aku harus extra belajar
+          dan
+          sering bertanya kepada orang yang lebih ahli dan sering membaca juga sebagai reverensi pendukung supaya
+          lebih
+          mudah memahami.</p>
+      </div>
+      <div class="contact">
+        <ul class="download">
+          <button class="kontak">Contact</button>
+          <li style="margin-top: 15px;">
+            <p>Download CV</p>
+          </li>
+          <li><img src="public/image/download.png" alt="" class="gambardownload"></li>
+        </ul>
+      </div>
+      <div class="social">
+        <ul>
+          <li><a href=""><img src="public/image/linkedin.png" alt=""></img></a></li>
+          <li><a href=""><img src="public/image/instagram.png" alt=""></img></a></li>
+          <li><a href=""><img src="public/image/facebook1.png" alt=""></img></a></li>
+          <li><a href=""><img src="public/image/twitter.png" alt=""></img></a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- foto ridho -->
+    <div class="foto">
+        <img src="public/image/Muhammad Ridho Img.webp" class="fotoridho">
+        <h4 style="text-align: center;">Muhammad Ridho</h4>
+        <p style="text-align: center;">FullStack Developer</p>
+    </div>
+  </div>
+</div>
+<!-- view project -->
+<div class="project" style="padding: 20px; display: flex; flex-direction: column;">
+  <div>
+      <h2 class="thenameproject" style="margin-bottom: 50px;
+      text-align: center;">MY PROJECTS</h2>
+  </div>
+  <div class="allColum" style="display: grid; grid-template-columns: auto auto auto auto">
+    {{range $index, $data := .Blogs}}
+    <div class="aturposisi" style="
+                  width: 370px;
+                  height: auto;
+                  padding: 30px;
+                  background-color: white;">
+      <div class="card-group" style="
+                  padding: 30px; 
+                  border: 1px solid black;">
+        <div class="card" style="
+                  border: none; 
+                  display: flex; 
+                  justify-content: flex-end;">
+          
+          <div class="card-body" style="
+                  padding: 0px;">
+                  <div class="keduanya" style="
+                  display: flex;">
+          <img src="public/image/ROG zephytrus duo 16.png" class="card-img-top" alt="..." style="width: 200px;height: auto;">
+        </div>
+        </div>
+           <a href="final-blog/{{$index}}"  class="card-title">{{$data.Nameproject}}</a>
+            <p>24/Nov/2022 | {{$data.Author}}</p>
+              <p>Tecnology</p>
+            <div style="margin-bottom:20px ; margin-top: -20px;"> 
+              <img src="{{$data.JavaScript}}" style="width:30px ;" alt="">
+              <img src="{{$data.NodeJS}}" style="width:30px ; margin: 10px;" alt="">
+              <img src="{{$data.ReactJS}}" style="width:30px ; margin: 10px;" alt="">
+              <img src="{{$data.TypeScript}}" style="width:30px ; margin: 10px;" alt="">
+            </div>
+            <p class="card-text" style="text-align: justify ;">{{$data.Comment}}</p>
+            <div class="editdelete1">
+              <li class="editdelete2" style="
+                    display: flex;
+                    justify-content: space-between;">
+                  <a href="/edit/{{$index}}" style="
+                  border: none;
+                  text-align: center;
+                  width: 80px;
+                  height: 30px;
+                  background-color: orange;
+                  border-radius: 5px;
+                  color: white ; 
+                  text-decoration: none; " >Edit</a>
+                  <a href="/delete/{{$index}}" style="
+                    border: none;
+                    text-align: center;
+                    width: 80px;
+                    height: 30px;
+                    background-color: red;
+                    border-radius: 5px;
+                  color: white ; 
+                  text-decoration: none; ">Delete</a>
+                </li>
+            </div>
+        </div>
+      </div>
+     </div>
+{{end}}
+
+
+  </div>
+  </div>  
+<!-- view project -->
+  <!-- Name Card -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
