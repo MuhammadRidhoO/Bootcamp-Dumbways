@@ -46,12 +46,12 @@
   <form class="form" action="/edit/{{.Projects.Id}}" method="POST">
     <div class="mb-3">
       <label for="#" class="form-label">Project Name</label>
-      <input name="nameproject" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{.Blog.Nameproject}}">
+      <input name="nameproject" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{.Projects.Nameproject}}">
       <div>
         <label class="kedua">Start Date</label>
-        <input type="date" class="kedua" id="start" name="start_date" value="{{.Blog.StartDate}}">
+        <input type="date" class="kedua" id="start" name="start_date" value="{{.Projects.StartDate.Format "2006-01-02"}}">
         <label class="kedua">End Date</label>
-        <input type="date" class="kedua" id="end" name="end_date" value="{{.Blog.EndDate}}">
+        <input type="date" class="kedua" id="end" name="end_date" value="{{.Projects.EndDate.Format "2006-01-02"}}">
       </div>
       <div>
         <label for="">Destription</label>

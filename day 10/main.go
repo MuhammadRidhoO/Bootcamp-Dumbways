@@ -248,8 +248,8 @@ func formproses(w http.ResponseWriter, r *http.Request) {
 
 	Nameproject := r.PostForm.Get("nameproject")
 	Comment := r.PostForm.Get("comment")
-	StartDate, _ := time.Parse("2006-01-02", r.PostForm.Get("startdate"))
-	EndDate, _ := time.Parse("2006-01-02", r.PostForm.Get("enddate"))
+	StartDate, _ := time.Parse("2006-01-02", r.PostForm.Get("start_date"))
+	EndDate, _ := time.Parse("2006-01-02", r.PostForm.Get("end_date"))
 	Image := "Dummy IT"
 	nodejs := r.PostForm.Get("nodejs")
 	reactjs := r.PostForm.Get("reactjs")
