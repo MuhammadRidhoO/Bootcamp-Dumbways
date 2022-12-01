@@ -87,7 +87,7 @@
       text-align: center;">MY PROJECTS</h2>
   </div>
   <div class="allColum" style="display: grid; grid-template-columns: auto auto auto auto">
-    {{range $index, $data := .Blogs}}
+    {{range $index, $data := .Projects}}
     <div class="aturposisi" style="
                   width: 370px;
                   height: auto;
@@ -108,22 +108,20 @@
           <img src="public/image/ROG zephytrus duo 16.png" class="card-img-top" alt="..." style="width: 200px;height: auto;">
         </div>
         </div>
-           <a href="final-blog/{{$index}}"  class="card-title">{{$data.Nameproject}}</a>
-            <p>24/Nov/2022 | {{$data.Author}}</p>
+           <a href="final-blog/{{$data.Id}}"  class="card-title">{{$data.Nameproject}}</a>
             <p>{{$data.Duration}}</p>
               <p>Tecnology</p>
             <div style="margin-bottom:20px ; margin-top: -20px;"> 
-              <img src="{{$data.JavaScript}}" style="width:30px ;" alt="">
-              <img src="{{$data.NodeJS}}" style="width:30px ; margin: 10px;" alt="">
-              <img src="{{$data.ReactJS}}" style="width:30px ; margin: 10px;" alt="">
-              <img src="{{$data.TypeScript}}" style="width:30px ; margin: 10px;" alt="">
+              {{range $index,$data := $data.Tecnology}}
+              <img src="/public/image/{{$data}}.png" style="width:30px ;" alt="">
+              {{end}}
             </div>
             <p class="card-text" style="text-align: justify ;">{{$data.Comment}}</p>
             <div class="editdelete1">
               <li class="editdelete2" style="
                     display: flex;
                     justify-content: space-between;">
-                  <a href="/edit/{{$index}}" style="
+                  <a href="/edit/{{$data.Id}}" style="
                   border: none;
                   text-align: center;
                   width: 80px;
@@ -132,7 +130,7 @@
                   border-radius: 5px;
                   color: white ; 
                   text-decoration: none; " >Edit</a>
-                  <a href="/delete/{{$index}}" style="
+                  <a href="/delete/{{$data.Id}}" style="
                     border: none;
                     text-align: center;
                     width: 80px;

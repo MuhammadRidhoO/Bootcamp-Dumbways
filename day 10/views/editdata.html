@@ -43,7 +43,7 @@
   <div class="titleproject">
     <h2>EDIT MY PROJECT</h2>
   </div>
-  <form class="form" action="/edit/{{.Blog.Id}}" method="POST">
+  <form class="form" action="/edit/{{.Projects.Id}}" method="POST">
     <div class="mb-3">
       <label for="#" class="form-label">Project Name</label>
       <input name="nameproject" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{.Blog.Nameproject}}">
@@ -56,26 +56,26 @@
       <div>
         <label for="">Destription</label>
         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"
-          name="comment">{{.Blog.Comment}}</textarea>
+          name="comment">{{.Projects.Comment}}</textarea>
       </div>
 
       <div class="ketiga">
       <label>Technologies</label>
       <div class="tigasatu" style="margin-top: 20px ;">
           <div>
-              <input name="nodejs" {{if .Blog.NodeJS}} checked {{end}} type="checkbox" id="logocheckbox" value="true">
+              <input name="nodejs" {{ range $index, $data :=.Projects.Tecnology }}{{ if (eq $data "nodejs" ) }} checked {{ end }} {{ end }} type="checkbox" id="logocheckbox" value="true">
               <label for="">Node JS</label>
-          </div>
+          </div> 
           <div>
-              <input name="javascript" {{if .Blog.JavaScript}} checked {{end}} type="checkbox" id="logocheckbox" value="true">
+              <input name="javascript" {{ range $index, $data :=.Projects.Tecnology }}{{ if (eq $data "javascript" ) }} checked {{ end }} {{ end }} type="checkbox" id="logocheckbox" value="true">
               <label for="">JavaScript</label>
           </div>
           <div>
-              <input name="reactjs" {{if .Blog.ReactJS}} checked {{end}} type="checkbox" id="logocheckbox" value="true">
+              <input name="reactjs" {{ range $index, $data :=.Projects.Tecnology }}{{ if (eq $data "reactjs" ) }} checked {{ end }} {{ end }} type="checkbox" id="logocheckbox" value="true">
               <label for="">React JS</label>
           </div>
           <div>
-              <input name="typescript" {{if .Blog.TypeScript}} checked {{end}} type="checkbox" id="logocheckbox" value="true">
+              <input name="typescript" {{ range $index, $data :=.Projects.Tecnology }}{{ if (eq $data "typescript" ) }} checked {{ end }} {{ end }} type="checkbox" id="logocheckbox" value="true">
               <label for="">TypeSripct</label>
           </div>
       </div>

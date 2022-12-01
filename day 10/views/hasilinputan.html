@@ -44,10 +44,10 @@
 </body>
 
 <!-- big blog -->
-<div class="blog-detail">
-    <div class="blog-detail-container">
-      <a href="" >{{.Blog.Nameproject}}</a>
-      <div class="author">29 Nov 2022 | Muhammad Ridho</div>
+<div class="blog-detail" style="padding: 100px;">
+    <div class="blog-detail-container" style="background-color: rgb(255, 255, 255); border-radius: 100px;">
+      <a href="" >{{.Project.Nameproject}}</a>
+      <div class="author">{{.Project.StartDate}} {{.Project.EndDate}}</div>
       <div style="margin-bottom:20px ; margin-top: 20px;"> 
         <img src="/public/image/JavaScript.png" style="width:30px ;" alt="">
         <img src="/public/image/JSnode.png" style="width:30px ; margin: 10px;" alt="">
@@ -55,8 +55,8 @@
         <img src="/public/image/typesscript.png" style="width:30px ; margin: 10px;" alt="">
       </div>
       <img src="/public/image/ROG zephytrus duo 16.png" alt="detail" />
-      <p>
-        {{.Blog.Comment}}
+      <p style="font-size: 25px; margin-top: 20px;">
+        {{.Project.Comment}}
       </p>
     </div>
   </div>
