@@ -1,0 +1,136 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none; 
+    list-style: none; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.navbar-item{
+    background-color: whitesmoke;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    object-fit: contain;
+}
+
+.buttoncontact {
+    padding: 23px;
+}
+
+.buttoncontact button {
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+
+.buttoncontact button {
+    background-color: orangered;
+}
+
+.titleproject {
+    /* background-color: aqua; */
+    width: 1280px;
+    padding: 30px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    /* background-color: aquamarine; */
+    padding-right: 120px;
+    padding-left: 120px;
+}
+
+.form-control {
+    margin-bottom: 30px;
+}
+
+.kedua {
+    margin-bottom: 30px;
+}
+
+.tigasatu {
+    margin-bottom: 30px;
+}
+
+.buttonsubmit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonsubmit button{
+    background-color: orangered;
+}
+
+.tigasatu {
+    /* background-color: aqua; */
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 120px auto;
+    gap: 10px;
+}
+
+body {
+    background-color: rgb(197, 197, 197);
+}
+
+/* .card-img-top {
+    width: 300px;
+    height: auto;
+}
+
+.project {
+    padding: 70px;
+}
+
+.thenameproject {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+
+.aturposisi {
+    display: grid;
+    padding: 30px;
+}
+
+.card-group {
+    padding: 30px;
+    border: 1px solid black;
+}
+
+.card {
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.editdelete2 {
+    display: flex;
+    gap: 40px;
+}
+
+.editdelete2 button {
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: orangered;
+    border-radius: 5px;
+}
+
+.keduanya {
+    display: flex;
+    justify-content: space-between;
+} */
