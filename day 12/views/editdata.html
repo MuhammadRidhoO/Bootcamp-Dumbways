@@ -43,7 +43,7 @@
   <div class="titleproject">
     <h2>EDIT MY PROJECT</h2>
   </div>
-  <form class="form" action="/edit/{{.Projects.Id}}" method="POST">
+  <form class="form" action="/edit/{{.Projects.Id}}" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="#" class="form-label">Project Name</label>
       <input name="nameproject" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{.Blog.Nameproject}}">

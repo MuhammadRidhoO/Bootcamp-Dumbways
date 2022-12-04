@@ -100,7 +100,7 @@
       text-align: center;">MY PROJECTS</h2>
   </div>
   <div class="allColum" style="display: grid; grid-template-columns: auto auto auto auto">
-    {{range $index, $data := .Projects}}
+{{ range $index, $data := .Projects }}
     <div class="aturposisi" style="
                   width: 370px;
                   height: auto;
@@ -118,7 +118,7 @@
                   padding: 0px;">
                   <div class="keduanya" style="
                   display: flex;">
-          <img src="public/image/ROG zephytrus duo 16.png" class="card-img-top" alt="..." style="width: 200px;height: auto;">
+          <img src="/{{$data.Image}}" class="card-img-top" alt="..." style="width: 200px;height: auto;">
         </div>
         </div>
            <a href="final-blog/{{$data.Id}}"  class="card-title" style="color: black; text-decoration: none;">{{$data.Nameproject}}</a>
@@ -158,8 +158,6 @@
       </div>
      </div>
 {{end}}
-
-
   </div>
   </div>  
 <!-- view project -->
@@ -168,5 +166,4 @@
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
 </body>
-
 </html>

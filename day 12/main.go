@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"html/template"
+
 	"strings"
 
 	"log"
@@ -12,6 +13,7 @@ import (
 	"time"
 
 	"persona-web/connection"
+	"persona-web/middleware"
 
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
@@ -26,15 +28,16 @@ func main() {
 	route.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("./public"))))
 
 	route.HandleFunc("/", home).Methods("GET")     //1
-	route.HandleFunc("/", addBlog).Methods("POST") //2
+	route.HandleFunc("/", middleware.UploadFile(addBlog)).Methods("POST") //2
 
 	route.HandleFunc("/contact", contact).Methods("GET")
-	
+
 	route.HandleFunc("/final-blog/{id}", finalBlog).Methods("GET")
+	
 	route.HandleFunc("/inputproject", inputproject).Methods("GET")
 
 	route.HandleFunc("/edit/{id}", formubahdata).Methods("GET")
-	route.HandleFunc("/edit/{id}", formproses).Methods("POST")
+	route.HandleFunc("/edit/{id}", middleware.UploadFile(formproses)).Methods("POST")
 
 	route.HandleFunc("/delete/{id}", deleteinput).Methods("GET")
 
@@ -55,6 +58,7 @@ type MetaData struct {
 	IsLogin   bool
 	UserName  string
 	FlashData string
+	Id 		  int
 }
 var Data = MetaData{
 	Title: "Personal Web",
@@ -69,6 +73,7 @@ type Project struct {
 	Duration    string
 	Image       string
 	Tecnology   []string
+	User_Id 	int
 }
 
 type Users struct {
@@ -86,49 +91,6 @@ func home(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Message: yang mana ni?" + err.Error()))
 		return
 	}
-	dataProjects, errQuery := connection.Conn.Query(context.Background(), "SELECT * FROM project")
-	if errQuery != nil {
-		fmt.Println("Message : yang mana ni 1 " + errQuery.Error())
-		return
-	}
-
-	var result []Project
-
-	for dataProjects.Next() {
-		var each = Project{}
-
-		err := dataProjects.Scan(&each.Id, &each.Nameproject, &each.Comment, &each.Image, &each.Tecnology, &each.StartDate, &each.EndDate)
-		if err != nil {
-			fmt.Println("Message : yang mana ni 2 " + err.Error())
-			return
-		}
-
-		diff := each.EndDate.Sub(each.StartDate)
-
-		months := int64(diff.Hours() / 24 / 30)
-		days := int64(diff.Hours() / 24)
-
-		if days%30 >= 0 {
-			days = days % 30
-		}
-
-		var duration string
-
-		if months >= 1 && days >= 1 {
-			duration = strconv.FormatInt(months, 10) + " month " + strconv.FormatInt(days, 10) + " days"
-		} else if months >= 1 && days <= 0 {
-			duration = strconv.FormatInt(months, 10) + " month"
-		} else if months < 1 && days >= 0 {
-			duration = strconv.FormatInt(days, 10) + " days"
-		} else {
-			duration = "0 days"
-		}
-		each.Duration = duration
-
-		result = append(result, each)
-	}
-
-	
 	var store = sessions.NewCookieStore([]byte("SESSIONS_ID"))
 	session, _ := store.Get(r, "SESSIONS_ID")
 
@@ -137,28 +99,56 @@ func home(w http.ResponseWriter, r *http.Request) {
 	} else {
 		Data.IsLogin = session.Values["IsLogin"].(bool)
 		Data.UserName = session.Values["Name"].(string)
-	}
+		Data.Id = session.Values["Id"].(int)
+		}
+		fm := session.Flashes("message")
 
-	fm := session.Flashes("message")
-
-	var flashes []string
+		var flashes []string
 	if len(fm) > 0 {
 		session.Save(r, w)
-
 		for _, fl := range fm {
 			flashes = append(flashes, fl.(string))
 		}
 	}
-
 	Data.FlashData = strings.Join(flashes, "")
 
-	// fmt.Println(result)
-	listProject := map[string]interface{}{
-		"Projects": result,
-		"Data" : Data,
+// Project slice to hold data from returned rowsData.
+// id := session.Values["Id"].(int)
+// fmt.Println(id)
+var resultData []Project
+
+if session.Values["Id"] != nil {
+	id := session.Values["Id"].(int)
+	// Query to database
+	rowsData, err := connection.Conn.Query(context.Background(), "SELECT * FROM project WHERE user_id=$1 ORDER BY id DESC", id)
+	if err != nil {
+		fmt.Println("Message : " + err.Error())
+		return
 	}
 
-	tmpt.Execute(w, listProject)
+	// Loop through rowsData, using Scan to assign column data to struct fields.
+	for rowsData.Next() {
+		var each = Project{}
+		err := rowsData.Scan(&each.Id, &each.Nameproject, &each.Comment, &each.Image, &each.Tecnology, &each.StartDate, &each.EndDate, &each.User_Id)
+		if err != nil {
+			fmt.Println("Message : " + err.Error())
+			return
+		}
+			resultData = append(resultData, each)
+	}
+	// for more database query: https://go.dev/doc/database/querying
+
+	fmt.Println(resultData)
+} else {
+	resultData = []Project{}
+}
+
+data := map[string]interface{}{
+	"Projects": resultData,
+	"Data":     Data,
+}
+
+tmpt.Execute(w, data)	
 }
 
 func addBlog(w http.ResponseWriter, r *http.Request) {
@@ -198,19 +188,27 @@ func addBlog(w http.ResponseWriter, r *http.Request) {
 	}
 	tecnology := []string{nodejs, reactjs, javascript, typescript}
 
+	dataContext := r.Context().Value("dataFile")
+	image := dataContext.(string)
+	var store = sessions.NewCookieStore([]byte("SESSIONS_ID"))
+	session, _ := store.Get(r, "SESSIONS_ID")
+
+	if session.Values["IsLogin"] != true {
+		Data.IsLogin = false
+	} else {
+		Data.IsLogin = session.Values["IsLogin"].(bool)
+		Data.UserName = session.Values["Name"].(string)
+		Data.Id = session.Values["Id"].(int)
+		}
+		user_id := session.Values["Id"].(int)
 	
-	_, err = connection.Conn.Exec(context.Background(), "INSERT INTO project(nameproject, comment, image, tecnology, start_date, end_date) VALUES ($1, $2, 'images.png', $3, $4, $5)",
-		nameproject, comment, tecnology, startDate, endDate)
-
-
-
-
+	_, err = connection.Conn.Exec(context.Background(), "INSERT INTO project(nameproject, comment, image, tecnology, start_date, end_date, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+		nameproject, comment, image, tecnology, startDate, endDate, user_id)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("message : yang mana ni 3 " + err.Error()))
 		return
 	}
-
 	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }
 
@@ -305,7 +303,6 @@ func formproses(w http.ResponseWriter, r *http.Request) {
 	Comment := r.PostForm.Get("comment")
 	StartDate, _ := time.Parse("2006-01-02", r.PostForm.Get("startdate"))
 	EndDate, _ := time.Parse("2006-01-02", r.PostForm.Get("enddate"))
-	Image := "Dummy IT"
 	nodejs := r.PostForm.Get("nodejs")
 	reactjs := r.PostForm.Get("reactjs")
 	javascript := r.PostForm.Get("javascript")
@@ -328,9 +325,23 @@ func formproses(w http.ResponseWriter, r *http.Request) {
 		typescript = "typescript"
 	}
 	Tecnology := []string{nodejs, reactjs, javascript, typescript}
+	dataContext := r.Context().Value("dataFile")
+	image := dataContext.(string)
+	var store = sessions.NewCookieStore([]byte("SESSIONS_ID"))
+	session, _ := store.Get(r, "SESSIONS_ID")
 
-	_, errQuery := connection.Conn.Exec(context.Background(), "UPDATE project SET nameproject=$1, comment=$2, image=$3, tecnology=$4, start_date=$5, end_date=$6  WHERE id=$7;", 
-	Nameproject, Comment, Image, Tecnology, StartDate, EndDate, id)
+	if session.Values["IsLogin"] != true {
+		Data.IsLogin = false
+	} else {
+		Data.IsLogin = session.Values["IsLogin"].(bool)
+		Data.UserName = session.Values["Name"].(string)
+		Data.Id = session.Values["Id"].(int)
+		}
+		user_id := session.Values["Id"].(int)
+	
+
+	_, errQuery := connection.Conn.Exec(context.Background(), "UPDATE project SET nameproject=$1, comment=$2, image=$3, tecnology=$4, start_date=$5, end_date=$6, user_id=$7  WHERE id=$8;", 
+	Nameproject, Comment,image, Tecnology, StartDate, EndDate, user_id, id )
 
 	if errQuery != nil {
 		fmt.Println("Message : " + errQuery.Error())
@@ -430,29 +441,31 @@ func akseslogin(w http.ResponseWriter, r *http.Request){
 		log.Fatal(err)
 	}
 
-	email := r.PostForm.Get("email")
-	password := r.PostForm.Get("password")
+	login_users := r.PostForm.Get("login_users")
+	login_password := r.PostForm.Get("login_password")
 
 	user := Users{}
 
-	err = connection.Conn.QueryRow(context.Background(), "SELECT * FROM users WHERE email=$1", email).Scan(
+	err = connection.Conn.QueryRow(context.Background(), "SELECT * FROM users WHERE email=$1", login_users).Scan(
 		&user.Id, &user.NameUsers, &user.EmailUsers, &user.PasswordUsers,
 	)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("message : " + err.Error()))
+		w.Write([]byte("message 1 : " + err.Error()))
 		return
 	}
 
-	err = bcrypt.CompareHashAndPassword([]byte(user.PasswordUsers), []byte(password))
+	err = bcrypt.CompareHashAndPassword([]byte(user.PasswordUsers), []byte(login_password))
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("message : " + err.Error()))
+		w.Write([]byte("message 2 : " + err.Error()))
 		return
 	}
 
 	session.Values["IsLogin"] = true
 	session.Values["Name"] = user.NameUsers
+	session.Values["Id"] = user.Id
+	
 	session.Options.MaxAge = 10800 // 3 hours
 
 	session.AddFlash("successfully login!", "message")
