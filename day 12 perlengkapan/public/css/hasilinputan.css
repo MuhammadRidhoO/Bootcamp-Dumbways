@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none; 
+    list-style: none; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.navbar-item{
+    background-color: whitesmoke;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    object-fit: contain;
+}
+
+.buttoncontact {
+    padding: 23px;
+}
+
+.buttoncontact button {
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+
+.buttoncontact button {
+    background-color: orangered;
+}
+
+/* big blog */
+.blog-detail{
+    margin: auto;
+    background-color: rgb(160, 156, 156);
+    width: auto;
+    height: auto;
+    /* display: flex; */
+    flex-direction: column;
+}
+
+.blog-detail-container {
+    margin: auto;
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.blog-detail-container img {
+    width: 800px;
+    height: auto;
+}
+
+.author{
+    margin-left: 70px;
+}
+
+.selaingambar {
+    padding: 30px;
+    background-color: rgb(160, 156, 156);;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.selaingambar a {
+    background-color: rgb(160, 156, 156);;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    column-gap: 20px;
+}
+
+.commentar {
+    padding: 30px;
+    height: auto;
+    background-color: rgb(160, 156, 156);
+}
+
+.icontecnology img{
+    width: 40px;
+    gap: 20px;
+}
+
