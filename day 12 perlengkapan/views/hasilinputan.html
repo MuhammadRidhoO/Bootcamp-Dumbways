@@ -52,23 +52,13 @@
         <a href="/">{{.Projectss.Nameproject}}</a>
        <div>{{.Projectss.StartDate.Format "02 Jan 2006"}} | {{.Projectss.EndDate.Format "02 Jan 2006"}}</div> 
        <div>{{.Projectss.Duration}}</div>
-       {{ range $index, $data := .Projectss.Tecnology }}
-        <div style="margin-bottom:20px ; margin-top: 20px;" class="icontecnology">
-          <img width="18" class="icon me-2" src="/public/image/{{ $data }}.png" alt="Icon" />{{
-            if (eq
-            $data "nodejs" ) }} Node JS
-            {{ else if (eq
-            $data "reactjs" ) }} React JS
-            {{ else if (eq
-            $data "javascript" ) }} Javascript JS
-            {{ else if (eq
-            $data "typescript" ) }} Typescript JS {{ end }}
-        </div>
+       <div style="margin-bottom:20px ; margin-top: 20px;" class="icontecnology">
+        {{range $index,$data := .Projectss.Tecnology}}
+        <img src="/public/image/{{$data}}.png" style="width:40px ;" alt="">
         {{end}}
+        </div>
       </div>
-      {{ range $index, $data := .Projectss.Image }}
-      <img src="/public/image/{{$data}}.jpg" alt="detail" />
-      {{end}}
+      <img src="/{{.Projectss.Image}}" alt="detail" />
       </div>
     <div class="commentar">
     <p style="font-size: 20px; margin-top: 20px;">

@@ -37,7 +37,7 @@
     </nav>
     <div class="buttoncontact" style="display: flex; align-items: center; justify-items: center;">
         {{if .Data.IsLogin}}
-        <p style="height: 40px; padding: 9px;margin-right:20px; color: black; border-radius: 10px; margin-bottom: 0px;">Hallo Guys</p>
+        <p style="height: 40px; padding: 9px;margin-right:20px; color: black; border-radius: 10px; margin-bottom: 0px;">Welcome To My Website</p>
         <a href="/logout" style="padding: 9px;
         background-color: black; margin-right: 20px; border-radius: 10px; color: white; text-decoration: none;"> Logout </a>
         {{else}}
@@ -123,7 +123,7 @@
         </div>
            <a href="final-blog/{{$data.Id}}"  class="card-title" style="color: black; text-decoration: none;">{{$data.Nameproject}}</a>
             <p>Duration : {{$data.Duration}}</p>
-              <p>Tecnology</p>
+            <p>Tecnology</p>
             <div style="margin-bottom:20px ; margin-top: -20px;"> 
               {{range $index,$data := $data.Tecnology}}
               <img src="/public/image/{{$data}}.png" style="width:30px ;" alt="">
