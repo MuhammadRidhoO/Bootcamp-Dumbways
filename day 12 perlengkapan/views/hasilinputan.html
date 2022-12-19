@@ -46,7 +46,7 @@
 <!-- big blog -->
 <div class="blog-detail" style="padding: 100px;">
   <div class="blog-detail-container" style="border-radius: 20px;">
-
+<div style="margin-bottom: 50px;">
     <div class="selaingambar">
       <div class="author">
         <a href="/">{{.Projectss.Nameproject}}</a>
@@ -54,16 +54,17 @@
        <div>{{.Projectss.Duration}}</div>
        <div style="margin-bottom:20px ; margin-top: 20px;" class="icontecnology">
         {{range $index,$data := .Projectss.Tecnology}}
-        <img src="/public/image/{{$data}}.png" style="width:40px ;" alt="">
+        <img src="/public/image/{{$data}}.png" style="width:40px ; margin-right: 15px;" alt="">
         {{end}}
         </div>
       </div>
-      <img src="/{{.Projectss.Image}}" alt="detail" />
-      </div>
+      <img src="/{{.Projectss.Image}}" alt="detail" style="height: 500px ; width: auto;" />
+    </div>
+    </div>
     <div class="commentar">
-    <p style="font-size: 20px; margin-top: 20px;">
-      {{.Projectss.Comment}}
-    </p>
+      <p style="font-size: 20px; margin-top: 20px;">
+        {{.Projectss.Comment}}
+      </p>
   </div>
 
   </div>
