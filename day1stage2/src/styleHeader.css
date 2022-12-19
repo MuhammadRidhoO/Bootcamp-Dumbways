@@ -1,0 +1,27 @@
+.next {
+    margin-top: -50px;
+    padding: 130px;
+    background-image: url("/public/img/backtoback2.svg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+.font {
+    font-weight: bold;
+    font-size: 70px;
+}
+
+.font2 {
+    font-weight: lighter;
+}
+.mb-3{
+    margin-top: -10px;
+}
+.iconns{
+    background-color:rgb(255, 165, 0);
+    color: white;
+    background-color: ye;
+    border: 0px;
+    width: 160px;
+    align-items: center;
+}

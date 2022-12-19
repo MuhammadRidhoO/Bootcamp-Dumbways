@@ -1,0 +1,115 @@
+body {
+  background-color: #f1f1f1;
+}
+.BG333 {
+    height: auto;
+    margin-top: 160px;
+}
+.afternavbar {
+    background-color: #f1f1f1;
+    margin-top:-14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+}
+.boking {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 1035px;
+    height: 419px;
+    border: 1px solid black;
+    margin: 70px 300px 0px 250px;
+    padding: 0px 60px 0px 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 1px;
+}
+.kiri {
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+}
+.logoboking {
+  margin-top: -40px;
+}
+.bar1 {
+  display: flex;
+  /* justify-content: space-between; */
+}
+.khusus {
+  display: flex;
+  flex-direction: column;
+}
+.atasdikit {
+    margin-left: 111px;
+}
+.bawah {
+  margin-top: -18px;
+  color: gray;
+  font-size: 14px;
+}
+.bar2 {
+  display: flex;
+  justify-content: space-between;
+}
+.waiting2 {
+    background-color: orange;
+    color: white;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    border-radius: 8px;
+}
+.last {
+  margin-left: 180px;
+}
+.imgcost {
+  width: 138.87px;
+  height: 139.31px;
+  left: 1040.52px;
+  top: 246px;
+}
+.costdkk{
+    margin-right: -40px;
+    margin-top: 10px;
+}
+.cost {
+  margin-top: 20px;
+}
+.mb-3 {
+    margin-top: 20px;
+}
+.sizebox {
+    width: 150px;  
+}
+.lanjutan1 {
+    position: absolute;
+    display: flex;
+    margin-top: 320px;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.alltable{
+    margin-top: -45px;
+}
+.tabless {
+    text-align: end;
+}
+.tabless3 {
+    text-align: end;
+    color: red;
+    font-weight: bold;
+}
+.tabless2 {
+    text-align: end;
+    border: 0px solid white;
+}
+.buttonpay {
+    display: flex;
+    justify-content: end;
+    margin: 40px 250px 0px 300px;
+}

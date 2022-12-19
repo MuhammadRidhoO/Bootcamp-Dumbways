@@ -1,0 +1,22 @@
+.semuaharga11 {
+    background-color: #f1f1f1f1;
+    padding: 160px 0px 0px 0px;
+}  
+.grouptour3 {
+    font-weight: 600;
+}
+.grouptour1 {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 960px;
+}   
+.grouptour4 {
+    border-radius: 8px;
+    background-color: orange;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border: 1px solid white;
+}

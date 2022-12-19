@@ -1,0 +1,42 @@
+.allformadmin {
+    width: auto;
+    background-color: #f1f1f1;
+    margin-top: 120px;
+}
+.alltripadmin {
+    /* padding: 100px 200px; */
+    /* border : 1px solid black; */
+    width: 700px;
+    margin: auto;
+    height: auto;
+    background-color: #f1f1f1;
+    padding: 0px 80px 100px;
+}
+.datetime {
+    display: flex;
+    justify-content: space-between;
+}
+.uploadfotoimg {
+    display: flex;
+    width: 247px;
+}
+.imguploadfile {
+    height: 20px;
+    margin-top: 6px;
+    margin-left: -25px;
+}
+.tombolsubmitaddadmin {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+.tombolsubmitaddadmin1 {
+    width: 200px;
+    background-color: #FFAF00;
+    border: 0px;
+}
+.judulAddTrip {
+    padding-top: 50px;
+    background-color: #f1f1f1;
+    margin-left: -30px;
+}

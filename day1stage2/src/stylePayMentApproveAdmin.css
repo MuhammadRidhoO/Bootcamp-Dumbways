@@ -1,0 +1,53 @@
+.buttonpay1111 {
+    display: flex;
+    justify-content:right;
+    width: 1035px;
+    margin: auto;
+    padding: 30px 0px 0px 0px;
+}
+.buttonpayacc11 {
+    margin-left: 40px;
+    width: 120px;
+    border: none;
+    background-color: red;
+}
+.buttonpayacc22 {
+    margin-left: 40px;
+    width: 120px;
+    border: none;
+    background-color: green;
+}
+.allin11 {
+    /* background-color: blueviolet; */
+    /* padding: 300px; */
+}
+.semuanyatanpakecuali {
+    background-color: white;
+    /* background-color: red; */
+    border: 1px solid black;
+    width: 1135px;
+    /* height: 519px; */
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+
+}
+.afternavbar2 {
+    border-radius: 0px;
+    /* background-color: blue; */
+}
+.boking22{
+    margin: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 1035px;
+  height: 419px;
+  padding: 0px 60px 0px 30px;
+  /* border-radius: 8px; */
+  box-shadow: 0px 0px 1px;
+}
+.modal {
+    --bs-modal-width: 1135px;
+    --bs-modal-height: 419px;
+   /* background-color: aqua; */
+}

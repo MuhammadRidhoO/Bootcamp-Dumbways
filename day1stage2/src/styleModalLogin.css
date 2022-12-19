@@ -1,0 +1,42 @@
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--bs-modal-color);
+  pointer-events: auto;
+  background-color: #FFFFFF;
+  background-clip: padding-box;
+  border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+  border-radius: var(--bs-modal-border-radius);
+  outline: 0;
+}
+.titlelogin {
+  display: flex;
+  justify-content: center;
+  border: 0px;
+}
+.titlelogin2 {
+  font-size: 30px;
+  font-weight: bolder;
+}
+.buttonlogin {
+  display: flex;
+  justify-content: center;
+}
+.buttonloginacc {
+  width: 600px;
+  background-color: orange;
+  border: 1px solid orange;
+}
+.noticeregister {
+  text-align: center;
+}
+.fw-bloder {
+  font-weight: bolder;
+}
+.noticeme {
+  color: rgb(152, 152, 152);
+  display: flex;
+  justify-content: center;
+}

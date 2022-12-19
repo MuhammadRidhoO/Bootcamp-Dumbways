@@ -1,0 +1,11 @@
+.afterloginkali {
+    background-image: url("/public/img/backtoback2.svg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 130px;
+    background-size: cover;
+    position: fixed;
+    top: 0px;
+    z-index: 99;
+    margin-top: -51px;
+  }

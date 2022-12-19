@@ -1,0 +1,119 @@
+.imgcountry {
+    width: 1018px;
+    height: 400px;
+    object-fit:cover;
+}
+.detail {
+    height: auto;
+    width: auto;
+    margin-top: 130px ;
+}
+.allimg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.judul {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 250px;
+}
+.judul h1 {
+    font-weight: bold;
+}
+.imgsecond {
+    margin-top: 10px;
+}
+.foto1 {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+li {
+    row-gap: 30px;
+    display: flex;
+    text-decoration: none ;
+}
+.duration {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 0px 250px 0px 250px;
+}
+.nameandimg {
+    display: flex;
+    margin-top: -20px;
+}
+.nameandimg1 {
+    display: flex;
+    flex-direction: column;
+}
+.nameimg {
+    color: gray;
+}
+.p-0px-250px-0px-250px {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0px 250px 0px 250px;
+}
+.description {
+    margin-top: 60px;
+    padding: 0px 250px 0px 250px;
+}
+.fontdescription {
+    font-weight: bold;
+    font-size: 20px;
+}
+.textdescription{
+    color: gray;
+    text-align: justify;
+}
+.d-flex{
+    margin-top: 40px;
+    justify-content: space-between;
+}
+.d-flex2 {
+    display: flex;
+}
+.pricedescription {
+    font-weight: bold;
+    color: orange
+}
+.jumlahticket {
+    display: flex;
+}
+.jandk {
+    width: 30px;
+    height: 30px;
+    border-radius: 200px;
+    text-align: center;
+}
+.totalharga {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.fonttotal {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.fontprice {
+    color: orange;
+    font-weight: 700;
+}
+.buttonbook {
+    display: flex;
+    justify-content: right;
+    margin: 40px 250px 0px 250px;
+}
+.buttonbook2 {
+    display: flex;
+    justify-content: right;
+    background-color: orange;
+    border: 1px solid orange;
+}

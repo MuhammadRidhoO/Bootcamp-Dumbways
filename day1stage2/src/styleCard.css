@@ -1,0 +1,32 @@
+.stylemenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.nemucard {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -80px;
+    padding: 0px 80px 0px 80px;
+}
+.pketerangan {
+    text-align: center;
+    color: lightgray;
+}
+.pketerangan1{
+    text-align: center;
+}
+.grouptour {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    margin-top: 80px;
+}
+.grouptour2 {
+    font-size: 50px;
+    font-weight: bold;
+}
+.semuaharga {
+    background-color: #f1f1f1f1;
+    padding: 40px 0px 0px 0px;
+}  
